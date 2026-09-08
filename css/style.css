@@ -217,6 +217,8 @@ ul { list-style: none; }
 }
 .login-link:hover { color: var(--gold); }
 
+.nav-cta-mobile { display: none; }
+
 .nav-toggle {
   display: none;
   background: none;
@@ -1281,6 +1283,7 @@ ul { list-style: none; }
   .main-nav .nav-link.active { background: rgba(229,193,112,.12); color: var(--gold); }
   .main-nav .nav-link.active::before { opacity: 1; }
 
+  .btn-book { display: none; }
   .nav-cta-mobile {
     display: flex !important;
     flex-direction: column;
@@ -1290,8 +1293,7 @@ ul { list-style: none; }
     border-top: 1px solid rgba(255,255,255,.12);
     width: 100%;
   }
-  
-.nav-cta-mobile .btn { width: 100%; }
+  .nav-cta-mobile .btn { width: 100%; }
   .nav-login-mobile {
     display: flex;
     align-items: center;
@@ -1314,7 +1316,7 @@ ul { list-style: none; }
   body.menu-open .nav-toggle svg line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   body.menu-open { overflow: hidden; }
 
-  .login-link { display: none; }
+  .login-link { display: inline-flex; }
   .nav-overlay {
     /* Keep the overlay BELOW the header (z-index 900): the drawer lives inside
        the header's stacking context, so the overlay must not cover it. */
@@ -1357,7 +1359,6 @@ ul { list-style: none; }
   .brand-mark { width: 40px; height: 40px; font-size: 17px; }
   .brand-text strong { font-size: 15.5px; }
   .brand-text small { font-size: 8.5px; }
-  .btn-book { display: none; }
   .nav-toggle svg { width: 24px; height: 24px; }
   .main-nav { padding-top: 84px; }
 }
@@ -1409,7 +1410,7 @@ ul { list-style: none; }
 
 @media (max-width: 760px) {
   .guest-auth-card { grid-template-columns: 1fr; }
-  .guest-auth-aside { display: none; }
+  .guest-auth-aside { display: block; }
   .guest-auth-form-side { padding: 34px 26px; }
   .guest-auth-brand-mobile { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
 }
@@ -1472,7 +1473,7 @@ ul { list-style: none; }
   .guest-login-wrap,
   .guest-register-wrap { grid-template-columns: 1fr; }
   .guest-login-aside,
-  .guest-register-aside { display: none; }
+  .guest-register-aside { display: block; }
   .guest-login-card,
   .guest-register-card { padding: 34px 26px; }
 }

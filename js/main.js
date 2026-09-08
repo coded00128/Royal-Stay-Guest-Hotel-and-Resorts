@@ -184,16 +184,52 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Give mobile users a Login / Sign Up link inside the drawer
-  $$('.nav-cta-mobile').forEach(function (wrap) {
-    if (wrap && !$('.nav-login-mobile', wrap)) {
+  // Ensure mobile drawer contains the same essential links as desktop
+  (function ensureMobileLinks() {
+    var required = [
+      { href: 'rooms.html', text: 'Book Now', classes: 'btn btn-gold btn-block' },
+      { href: 'booking.html', text: 'Booking', classes: 'btn btn-outline btn-block' },
+      { href: 'confirmation.html', text: 'Confirmation', classes: 'btn btn-outline btn-block' },
+      { href: 'guest-login.html', text: 'Guest Login', classes: 'btn btn-outline btn-block' },
+      { href: 'guest-register.html', text: 'Create Account', classes: 'btn btn-outline btn-block' },
+      { href: 'guest-booking-access.html', text: 'Find My Booking', classes: 'btn btn-outline btn-block' },
+      { href: 'guest-dashboard.html', text: 'My Bookings', classes: 'btn btn-outline btn-block' }
+    ];
+    var mainNav = document.querySelector('.main-nav');
+    var wrap = document.querySelector('.nav-cta-mobile');
+    if (!wrap && mainNav) {
+      wrap = document.createElement('div');
+      wrap.className = 'nav-cta-mobile';
+      mainNav.appendChild(wrap);
+    }
+    if (!wrap) return;
+    if (!wrap.querySelector('.nav-login-mobile')) {
       var lnk = document.createElement('a');
       lnk.className = 'nav-login-mobile';
       lnk.href = 'guest-login.html';
       lnk.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Guest Login';
       wrap.insertBefore(lnk, wrap.firstChild);
     }
-  });
+    required.forEach(function (item) {
+      var exists = wrap.querySelector('a[data-mobile-href="' + item.href + '"]') ||
+                   wrap.querySelector('a[href="' + item.href + '"]');
+      if (!exists) {
+        var a = document.createElement('a');
+        a.href = item.href;
+        a.className = item.classes;
+        a.setAttribute('data-mobile-href', item.href);
+        a.textContent = item.text;
+        wrap.appendChild(a);
+      }
+    });
+    var seen = {};
+    Array.prototype.slice.call(wrap.querySelectorAll('a')).forEach(function (a) {
+      var h = a.getAttribute('data-mobile-href') || a.getAttribute('href');
+      if (h) {
+        if (seen[h]) { a.parentNode && a.parentNode.removeChild(a); } else { seen[h] = true; }
+      }
+    });
+  })();
 
   // If a guest session exists, show a user menu in the header and mobile drawer
   (function () {
