@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Royal Stay Console</title>
+<link rel="stylesheet" href="css/manage.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-card">
+  <!-- Left brand panel -->
+  <div class="auth-aside">
+    <div class="brand">
+      <span class="brand-mark">RS</span>
+      <span class="brand-text"><strong>ROYAL STAY</strong><small>HOTELS &amp; RESORTS</small></span>
+    </div>
+    <h1>Join the <em>Royal Stay</em> platform.</h1>
+    <p>Create an account to book and manage stays, or join the front-desk team in the management console.</p>
+    <ul class="chip-list">
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Guests</b> — book rooms &amp; track your stays</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Staff</b> — limited console access (demo)</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Data stays in your browser — no real server</li>
+    </ul>
+  </div>
+
+  <!-- Form side -->
+  <div class="auth-form-side">
+    <div class="auth-brand-mobile">
+      <span class="brand-mark">RS</span>
+      <span class="brand-text"><strong>ROYAL STAY</strong><small>HOTELS &amp; RESORTS</small></span>
+    </div>
+    <h2>Create your account</h2>
+    <p class="sub">One account for the website and the console.</p>
+
+    <div class="form-error" id="regError"></div>
+
+    <form id="registerForm" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" id="regName" placeholder="e.g. Ada Obi" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="tel" id="regPhone" placeholder="e.g. 0916 133 0967" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email address <span class="req">*</span></label>
+        <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="username">
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Password <span class="req">*</span></label>
+          <input type="password" id="regPass" placeholder="At least 6 characters" autocomplete="new-password">
+        </div>
+        <div class="form-field">
+          <label>Confirm password <span class="req">*</span></label>
+          <input type="password" id="regPass2" placeholder="Repeat password" autocomplete="new-password">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>I am a…</label>
+        <div class="flex" style="gap:10px">
+          <label class="btn btn-sm btn-outline" style="cursor:pointer">
+            <input type="radio" name="regRole" value="guest" checked style="accent-color:var(--navy)"> Guest (book &amp; track stays)
+          </label>
+          <label class="btn btn-sm btn-outline" style="cursor:pointer">
+            <input type="radio" name="regRole" value="staff" style="accent-color:var(--navy)"> Staff (front desk)
+          </label>
+        </div>
+        <p class="form-hint">Guests manage their own bookings. Staff get limited console access. Administrator accounts are created by the demo seed only.</p>
+      </div>
+
+      <button class="btn btn-navy btn-block" type="submit">Create account</button>
+    </form>
+
+    <p class="auth-foot">Already registered? <a href="login.html">Sign in</a> &nbsp;·&nbsp; <a href="../index.html">Back to website →</a></p>
+  </div>
+</div>
+
+<script src="js/manage.js"></script>
+</body>
+</html>

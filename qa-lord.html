@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lord Icon QA Board</title>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: ui-monospace, Menlo, monospace; background: #f4f6fa; padding: 20px; }
+  h1 { font-size: 18px; margin: 0 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .c { background: #fff; border: 1px solid #e3e7ef; border-radius: 12px; padding: 14px 8px 10px; text-align: center; }
+  .c lord-icon { width: 56px; height: 56px; margin: 0 auto; }
+  .c .cap { display: block; margin-top: 8px; font-size: 11px; color: #556; word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Lord Icon candidates</h1>
+<div class="grid" id="g"></div>
+<script>
+  var ids = [];
+  var g = document.getElementById('g');
+  ids.forEach(function (id) {
+    var c = document.createElement('div'); c.className = 'c';
+    c.innerHTML = '<lord-icon src="https://cdn.lordicon.com/' + id + '.json" trigger="loop" colors="primary:#0a1e3c,secondary:#e5c170" style="width:56px;height:56px"></lord-icon>' +
+      '<span class="cap">' + id + '</span>';
+    g.appendChild(c);
+  });
+</script>
+</body>
+</html>

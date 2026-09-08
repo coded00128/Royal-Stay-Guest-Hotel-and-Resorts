@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management Console — Royal Stay</title>
+<link rel="stylesheet" href="css/manage.css">
+</head>
+<body class="console-body">
+
+<div class="app" id="appShell">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="app-side" id="appSide">
+    <div class="side-brand">
+      <span class="brand-mark">RS</span>
+      <span class="brand-text"><strong>ROYAL STAY</strong><small>HOTELS &amp; RESORTS</small></span>
+    </div>
+    <nav class="side-nav" id="appNav"><!-- populated by manage.js --></nav>
+    <div class="side-foot" id="sideFoot"><!-- populated by manage.js --></div>
+  </aside>
+
+  <div class="app-overlay" id="appOverlay"></div>
+
+  <!-- ===== Main column ===== -->
+  <div class="app-main">
+    <header class="app-topbar">
+      <button class="side-toggle" id="sideToggle" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="tb-titles">
+        <h1 id="pageTitle">Dashboard</h1>
+        <small id="pageSub"></small>
+      </div>
+      <div class="tb-right">
+        <a class="tb-view-site" href="../index.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>View Website</span>
+        </a>
+        <div class="tb-user" id="tbUser"><!-- populated by manage.js --></div>
+      </div>
+    </header>
+
+    <main class="app-content" id="appContent"><!-- views render here --></main>
+  </div>
+</div>
+
+<div class="c-toast" id="cToast"></div>
+
+<script src="js/manage.js"></script>
+</body>
+</html>
